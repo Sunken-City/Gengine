@@ -5,22 +5,15 @@ using System.Collections;
 public class Gene : ScriptableObject
 {
 
-		public static System.Random random;
+		public static System.Random random = new System.Random();
 
 		public string type;
 		public Object firstAllele;
-		public Dominance firstDominance;
+		public int firstDominance;
 		public Object secondAllele;
-		public Dominance secondDominance;
+		public int secondDominance;
 
-		public enum Dominance
-		{
-				Recessive = 0,
-				Dominant = 1,
-				Codominant = 2
-		};
-
-		public Gene(string geneType, Object all1, Dominance dom1, Object all2, Dominance dom2)
+		public Gene(string geneType, Object all1, int dom1, Object all2, int dom2)
 		{
 			this.type = geneType;
 			this.firstAllele = all1;
@@ -38,7 +31,7 @@ public class Gene : ScriptableObject
 			}
 
 			//TODO: When you make a game controller, put it there so we get real, reliable results
-			random = new System.Random();
+			//random
 
 			int randomNumber = random.Next(1, 5);
 			Gene offspring;
